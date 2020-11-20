@@ -17,18 +17,31 @@
     background-color: red;
     position: relative;
     top: 150px;
-   
+    left: 100px;  
 }
-.animate{
+
+/*.animate{
     animation: jump 500ms linear;
+}*/
+
+.grow{
+    animation: expand;
 }
 
-
-@keyframes jump{
+/*@keyframes jump{
     0%{top: 150px;}
     30%{top: 100px;}
     70%{top: 100px;}
     100%{top: 150px;}
+}*/
+
+@keyframes expand{
+    0%{width: width;
+        left: 100px;
+    }
+    100%{width: 10%;
+        left: -10%;
+    }
 }
 
 #block{
@@ -38,10 +51,10 @@
     position: relative;
     top: 130px;
     left: 500px;
-    animation: block 1s infinite linear ;
+    animation: block_run 1.5s infinite linear ;
 }
 
-@keyframes block{
+@keyframes block_run{
     0%{left : 500px;}
     100%{left: -20px;}
 }

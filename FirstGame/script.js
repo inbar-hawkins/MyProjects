@@ -1,16 +1,29 @@
 var character = 
 document.getElementById("character");
 var block = document.getElementById("block");
-function jump(){
+/*function jumpHigh(){
     if (character.classList != "animate"){
     character.classList.add("animate");
     }
     setTimeout(function(){
         character.classList.remove("animate");
     },500);
+}*/
+
+var getBigger = function(){
+    var characterTop = 
+    parseInt(window.getComputedStyle(character).getPropertyValue("top"));
+    var blockLeft = 
+    parseInt(window.getComputedStyle(block).getPropertyValue("left"));
+    if( blockLeft > 0 && blockleft < 20 && characterTop >= 130){
+        character.classList.add("grow");
+    }
 }
 
-var checkDead = setInterval(function(){
+
+
+
+/*var gameOver = setInterval(function(){
     var characterTop = 
     parseInt(window.getComputedStyle(character).getPropertyValue("top"));
     var blockLeft = 
@@ -21,4 +34,4 @@ var checkDead = setInterval(function(){
         alert("Game Over");
     }
 
-},10);
+},10);*/
