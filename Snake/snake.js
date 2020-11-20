@@ -27,7 +27,7 @@ export function update(){
 }
 
 export function draw(gameBoard){
-   // console.log("draw snake")
+   // was before :console.log("draw snake")
    snakeBody.forEach(segment => {
        const snakeElement  = document.createElement("div")
        snakeElement.style.gridRowStart = segment.y
