@@ -1,4 +1,4 @@
-//import from snake
+
 import { onSnake, expandSnake } from "./snake.js"
 
 let food = { x: 10, y: 1}
