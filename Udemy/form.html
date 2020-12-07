@@ -12,34 +12,34 @@
         <h1>Race Registration!</h1>
         <div>
 
-            <label for="firstname">First Name</label>
-            <input type="text" id="firstname" name="lastname">
-            <label for="lastname">Last Name</label>
-            <input type="text" id="lastname" name="lastname">
+            <label for="first">First Name</label>
+            <input type="text" id="first" name="firstname" required>
+            <label for="last">Last Name</label>
+            <input type="text" id="last" name="lastname" required>
         </div>
         <div>
             <p>Select a Race:</p>
-            <p><label for="race"></label>
-                <input type="radio" id="fun" name="race">Fun Race 5k</p>
-            <p><label for="race"></label>
-                <input type="radio" id="half" name="race">Half Marathon</p>
-            <p><label for="race"></label>
-                <input type="radio" id="full" name="race">Full Marathon</p>
+            <p><input type="radio" id="fun" name="race" value="fun">
+                <label for="race">Fun Race 5k</label></p>
+            <p> <input type="radio" id="half" name="race" value="half">
+                <label for="race">Half Marathon</label></p>
+            <p><input type="radio" id="full" name="race" value="full">
+                <label for="race">Full Marathon</label></p>
         </div>
         <div>
             <label for="email">Email</label>
-            <input type="email" id="email" name="email">
+            <input type="email" id="email" name="email" required>
             <label for="password">Password</label>
-            <input type="password" id="password" name="password">
+            <input type="password" id="password" name="password" required>
         </div>
         <div>
             <p>Select Age Group
                 <label for="age"></label>
                 <select name="age" id="age">
-                    <option value="under18">Under 18</option>
-                    <option value="18-30">18-30</option>
-                    <option value="30-50">30-50</option>
-                    <option value="50+">50+</option>
+                    <option value="kid">Under 18</option>
+                    <option value="young">18-30</option>
+                    <option value="adult">30-50</option>
+                    <option value="old">50+</option>
                 </select></p>
         </div>
         <div>
