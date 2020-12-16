@@ -1,0 +1,16 @@
+img{
+    width:30%;
+    margin:calc(10%/6); /*10% left divided to 6 spaces*/
+    /*margin:1.6666%*/
+}
+
+nav{
+    font-family: 'Andika New Basic', sans-serif;
+    text-transform:uppercase;
+    border-bottom: 5px solid lightslategrey;
+    width:30%;
+    margin-left:calc(10%/6);
+    padding: 1.2em 0;
+    font-size: 1.5em;
+}
+
