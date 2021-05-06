@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const Product = require('./product');
 const { Schema } = mongoose;
 
 const farmSchema = new Schema({
@@ -12,7 +11,10 @@ const farmSchema = new Schema({
     },
     email: {
         type: String,
-        required: [true, 'Email required']
+        //required: [true, 'Email required']
+    },
+    orderFormUrl: {
+        type: String,
     },
     products: [
         {
