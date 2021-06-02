@@ -3,10 +3,12 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override')
-
 const Product = require('./models/product');
 const Farm = require('./models/farm')
 const categories = ['fruit', 'vegetable', 'other'];
+const session = require("express-session"); //for keeping info on the server
+const sessionSettings = { secret: "myVeryTopSecret", resave: false, saveUninitialized: false };
+const flash = require("connect-flash");//for flashing messages
 
 
 mongoose.connect('mongodb://localhost:27017/farmStandTake2', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -24,12 +26,14 @@ app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'))
+app.use(session(sessionSettings));
+app.use(flash());
 
 // FARM ROUTES
 
 app.get('/farms', async (req, res) => {
     const farms = await Farm.find({});
-    res.render('farms/index', { farms })
+    res.render('farms/index', { farms, messages: req.flash("success") })
 })
 
 app.get('/farms/new', (req, res) => {
@@ -49,6 +53,7 @@ app.delete('/farms/:id', async (req, res) => {
 app.post('/farms', async (req, res) => {
     const farm = new Farm(req.body);
     await farm.save();
+    req.flash("success", "successfully made a new farm!");
     res.redirect('/farms')
 })
 
