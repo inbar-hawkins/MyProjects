@@ -28,12 +28,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'))
 app.use(session(sessionSettings));
 app.use(flash());
+app.use((req, res, next) => {
+    res.locals.messages = req.flash("success");
+    next();
+})
 
 // FARM ROUTES
 
 app.get('/farms', async (req, res) => {
     const farms = await Farm.find({});
-    res.render('farms/index', { farms, messages: req.flash("success") })
+    res.render('farms/index', { farms })
 })
 
 app.get('/farms/new', (req, res) => {
