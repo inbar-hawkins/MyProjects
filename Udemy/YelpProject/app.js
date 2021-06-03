@@ -3,10 +3,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate"); //for layouts
-//const catchAsync = require("./utils/catchAsync");//for wrapper func
-//const { campgroundSchema, reviewSchema } = require("./schemas.js")//for campground & review validation schema
-//const Review = require("./models/review"); //for Review model
-//const ExpressError = require("./utils/ExpressError");//for ErrorsHandler
+
 const campgrounds = require("./routes/campgrounds"); //for campgrounds routes
 const reviews = require("./routes/reviews"); //for reviews routes
 
@@ -37,23 +34,6 @@ app.use("/campgrounds/:id/reviews", reviews);//update reviews routes
 app.get("/", (req, res) => {
     res.render("home");
 })
-
-/*app.post("/campgrounds/:id/reviews", validateReview, catchAsync(async (req, res) => {
-    const campground = await Campground.findById(req.params.id);
-    const review = new Review(req.body.review);
-    campground.reviews.push(review);
-    await review.save();
-    await campground.save();
-    res.redirect(`/campgrounds/${campground._id}`);
-}))
-
-app.delete("/campgrounds/:id/reviews/:reviewId", catchAsync(async (req, res) => {
-    const { id, reviewId } = req.params;
-    await Campground.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
-    await Review.findByIdAndDelete(reviewId);
-    res.redirect(`/campgrounds/${id}`);
-}))*/
-
 
 app.all("*", (req, res, next) => {
     next(new ExpressError("Page Not Found", 404));
