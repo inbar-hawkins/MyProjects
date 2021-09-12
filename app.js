@@ -1,3 +1,9 @@
+if (process.env.NODE_ENV !== "production") {
+    require('dotenv').config();
+}
+
+//CLOUDINARY_CLOUD_NAME,CLOUDINARY_KEY, CLOUDINARY_SECRET are included in a file whic is not in GIT
+
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
